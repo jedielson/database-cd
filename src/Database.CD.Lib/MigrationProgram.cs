@@ -11,17 +11,15 @@ namespace Database.CD.Lib
         {
             if (options.ConnectionString == null)
             {
-                Console.WriteLine($"Please add a connection string key");
-                Console.ReadKey();
-                return;
+                throw new ArgumentException($"Please add a connection string key");
             }
 
 
             var manager = new VersionManager(options.ConnectionString);
 
-            var output = !options.ExecuteRevertion 
+            var output = !options.ExecuteRollback 
                 ? manager.ExecuteMigrations() 
-                : manager.ExecuteReversion(options.RevertionVersion);
+                : manager.ExecuteReversion(options.RollbackVersion);
             
             foreach (string str in output)
             {

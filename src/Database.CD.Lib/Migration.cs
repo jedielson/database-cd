@@ -29,7 +29,7 @@ namespace Database.CD.Lib
 
             for (int i = names.Length - 1; i >= 0; i--)
             {
-                if (names[i] == "Migrations" || names[i] == "Revertions")
+                if (names[i] == "Migrations" || names[i] == "Rollbacks")
                 {
                     break;
                 }
